@@ -1,0 +1,11 @@
+find_package(nlohmann_json 3.2.0 REQUIRED)
+
+if (MYDEBUG)
+    message(STATUS "${BoldYellow}NO debug mode${ColourReset}")
+    add_executable (json_parse json_parse.cc)
+    target_link_libraries (json_parse PRIVATE nlohmann_json::nlohmann_json)
+else()
+    message(STATUS "${BoldYellow}debug mode${ColourReset}")
+    add_executable (json_parse json_parse.cc) 
+    target_link_libraries (json_parse PRIVATE nlohmann_json::nlohmann_json)
+    endif(MYDEBUG)
